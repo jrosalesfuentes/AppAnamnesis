@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnamnesisLab — Kinesiología U. de Chile</title>
+<title>Simulador Anamnesis — Kinesiología U. de Chile</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
@@ -303,10 +303,10 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
 <!-- HEADER -->
 <header>
   <div class="brand">
-    <div class="brand-icon">🫁</div>
+    <div class="brand-icon">📝</div>
     <div>
-      <div class="brand-title">AnamnesisLab</div>
-      <div class="brand-sub">Depto. Kinesiología · Fac. Medicina · U. de Chile</div>
+      <div class="brand-title">Simulador Anamnesis</div>
+      <div class="brand-sub">Depto. Kinesiología · U. de Chile</div>
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:.75rem">
@@ -360,8 +360,8 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
   <div class="teacher-login-box">
     <div class="tl-logo">
       <div class="tl-icon">👨‍🏫</div>
-      <h2>Acceso Docente</h2>
-      <p>Ingrese con sus credenciales autorizadas por el administrador del sistema</p>
+      <h2>Simulador Anamnesis</h2>
+      <p>Acceso Docente — ingrese con sus credenciales autorizadas</p>
     </div>
     <div class="tl-badge">🔒 Acceso restringido — requiere autorización previa</div>
     <div class="form-row"><label>Correo electrónico</label><input type="email" id="tl-email" placeholder="docente@med.uchile.cl" oninput="checkTeacherLogin()"></div>
@@ -388,7 +388,17 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
   <div class="scroll-area">
     <div style="text-align:center;max-width:680px;width:100%">
       <h2 style="font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--navy)">Panel de Administración <span class="admin-badge">Admin</span></h2>
-      <p style="color:var(--text2);font-size:.9rem;margin-top:.4rem">Gestione el acceso de docentes autorizados al sistema.</p>
+      <p style="color:var(--text2);font-size:.9rem;margin-top:.4rem">Gestione el acceso de docentes y los casos clínicos del sistema.</p>
+    </div>
+
+    <!-- Acceso rápido -->
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;max-width:820px;width:100%">
+      <button class="btn btn-teal" onclick="showTeacher()" style="flex:1;justify-content:center;padding:.85rem;font-size:.95rem">
+        📋 Gestionar casos clínicos
+      </button>
+      <button class="btn btn-outline" onclick="downloadResultsExcel()" style="flex:1;justify-content:center;padding:.85rem;font-size:.95rem">
+        📥 Descargar resultados Excel
+      </button>
     </div>
 
     <!-- Solicitudes pendientes -->
@@ -454,6 +464,9 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
 <div class="screen" id="screen-teacher">
   <div class="scroll-area">
     <div style="text-align:center;max-width:680px;width:100%">
+      <div id="back-to-admin-btn" style="display:none;margin-bottom:.75rem">
+        <button class="btn btn-ghost btn-sm" onclick="showAdminPanel()">← Volver al panel de administración</button>
+      </div>
       <h2 style="font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--navy)">Gestión de Casos Clínicos</h2>
       <p style="color:var(--text2);font-size:.9rem;margin-top:.4rem;line-height:1.6">Cree casos clínicos a partir del guión del paciente y la pauta de evaluación.</p>
     </div>
@@ -788,9 +801,9 @@ function showScreen(id) {
 }
 
 function clickTeacherTab() {
-  // If already logged in as teacher or admin, go straight to their panel
   if (DB.currentTeacher) {
     setActiveTab('teacher');
+    // Admin goes to admin panel, regular teacher goes to teacher panel
     if (DB.currentTeacher.isAdmin) { showAdminPanel(); }
     else { showTeacher(); }
   } else {
@@ -799,8 +812,21 @@ function clickTeacherTab() {
   }
 }
 
+// Allow admin to navigate to teacher panel and back
+function showTeacherFromAdmin() {
+  showScreen('screen-teacher');
+  renderTeacherCases();
+}
+
+function backToAdmin() {
+  if (DB.currentTeacher?.isAdmin) showAdminPanel();
+}
+
 function showTeacher() {
   showScreen('screen-teacher');
+  // Show back button only for admin
+  const backBtn = document.getElementById('back-to-admin-btn');
+  if (backBtn) backBtn.style.display = DB.currentTeacher?.isAdmin ? 'block' : 'none';
   renderTeacherCases();
 }
 
@@ -854,7 +880,7 @@ function doTeacherLogin() {
   // Check admin
   if (email === DB.ADMIN.email.toLowerCase() && pass === DB.ADMIN.pass) {
     DB.currentTeacher = { email, name: DB.ADMIN.name, isAdmin: true };
-    updateHeaderUser(DB.ADMIN.name, 'Administrador');
+    updateHeaderUser(DB.ADMIN.name, 'Administrador · Docente');
     showAdminPanel();
     return;
   }
