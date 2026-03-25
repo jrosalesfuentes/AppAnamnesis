@@ -52,7 +52,8 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
 .form-row label{font-size:.72rem;font-weight:700;color:var(--text2);letter-spacing:.04em;text-transform:uppercase}
 .form-row input,.form-row select,.form-row textarea{border:1.5px solid var(--border);border-radius:7px;padding:.55rem .8rem;font-family:'Source Sans 3',sans-serif;font-size:.88rem;color:var(--text);background:var(--cream);transition:border-color .2s;resize:vertical;width:100%}
 .form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--blue2);background:white}
-.form-row input.field-filled,.form-row select.field-filled,.form-row textarea.field-filled{background:white;color:var(--text);border-color:var(--teal2)}
+.form-row input.field-filled,.form-row select.field-filled,.form-row textarea.field-filled{background:white;color:#222222;border-color:var(--teal2);font-weight:400}
+.form-row input.field-filled::placeholder,.form-row textarea.field-filled::placeholder{color:transparent}
 .form-row textarea{min-height:75px;line-height:1.5}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
@@ -533,60 +534,60 @@ header{background:var(--navy);color:white;display:flex;align-items:center;justif
 
         <div class="sec-label">📋 Identificación</div>
         <div class="grid2">
-          <div class="form-row"><label>Título del caso</label><input type="text" id="f-title" placeholder="Ej: Adulto con asma bronquial y bronquiectasias"></div>
+          <div class="form-row"><label>Título del caso</label><input type="text" id="f-title" placeholder="Se completará automáticamente desde el PDF"></div>
           <div class="form-row"><label>Área clínica</label><input type="text" id="f-area" value="Kinesiología Respiratoria" readonly style="background:var(--warm);color:var(--text3)"></div>
         </div>
         <div class="grid3">
-          <div class="form-row"><label>Nombre del paciente</label><input type="text" id="f-name" placeholder="Nombre del actor/actriz"></div>
-          <div class="form-row"><label>Edad</label><input type="text" id="f-age" placeholder="Ej: 35 años"></div>
+          <div class="form-row"><label>Nombre del paciente</label><input type="text" id="f-name" placeholder="Se completará automáticamente desde el PDF"></div>
+          <div class="form-row"><label>Edad</label><input type="text" id="f-age" placeholder="Se completará automáticamente desde el PDF"></div>
           <div class="form-row"><label>Sexo</label><select id="f-sex"><option value="">—</option><option>Masculino</option><option>Femenino</option></select></div>
         </div>
         <div class="grid2">
-          <div class="form-row"><label>Estado civil</label><input type="text" id="f-marital" placeholder="Ej: Casado/a"></div>
-          <div class="form-row"><label>Previsión de salud</label><input type="text" id="f-prevision" placeholder="Ej: Fonasa B"></div>
+          <div class="form-row"><label>Estado civil</label><input type="text" id="f-marital" placeholder="Se completará automáticamente desde el PDF"></div>
+          <div class="form-row"><label>Previsión de salud</label><input type="text" id="f-prevision" placeholder="Se completará automáticamente desde el PDF"></div>
         </div>
         <div class="grid2">
-          <div class="form-row"><label>Con quién vive</label><input type="text" id="f-liveswith" placeholder="Ej: Esposa e hijos"></div>
-          <div class="form-row"><label>Actividad laboral</label><input type="text" id="f-work" placeholder="Ej: Mecánico"></div>
+          <div class="form-row"><label>Con quién vive</label><input type="text" id="f-liveswith" placeholder="Se completará automáticamente desde el PDF"></div>
+          <div class="form-row"><label>Actividad laboral</label><input type="text" id="f-work" placeholder="Se completará automáticamente desde el PDF"></div>
         </div>
-        <div class="form-row"><label>Vivienda</label><input type="text" id="f-housing" placeholder="Ej: Departamento 4to piso, piso flotante, calefacción a gas"></div>
+        <div class="form-row"><label>Vivienda</label><input type="text" id="f-housing" placeholder="Se completará automáticamente desde el PDF"></div>
 
         <div class="divider"></div>
         <div class="sec-label">🏥 Información clínica</div>
-        <div class="form-row"><label>Diagnóstico médico actual</label><input type="text" id="f-diagnosis" placeholder="Ej: Asma bronquial + bronquiectasias reinfectadas"></div>
-        <div class="form-row"><label>Motivo de consulta kinesiológica</label><input type="text" id="f-chief" placeholder="Ej: Refuerzo técnica inhalatoria y enseñanza de ejercicios respiratorios"></div>
-        <div class="form-row"><label>Antecedentes de enfermedades respiratorias crónicas</label><textarea id="f-resp-hx" placeholder="Ej: Asma desde los 7 años, bronquiectasias, neumonías previas..."></textarea></div>
-        <div class="form-row"><label>Hospitalizaciones previas</label><textarea id="f-hosp" placeholder="Ej: 6 hospitalizaciones en la infancia, última hace 2 meses..."></textarea></div>
-        <div class="form-row"><label>Antecedentes mórbidos NO respiratorios</label><textarea id="f-other-hx" placeholder="Ej: Alergia a mariscos..."></textarea></div>
+        <div class="form-row"><label>Diagnóstico médico actual</label><input type="text" id="f-diagnosis" placeholder="Se completará automáticamente desde el PDF"></div>
+        <div class="form-row"><label>Motivo de consulta kinesiológica</label><input type="text" id="f-chief" placeholder="Se completará automáticamente desde el PDF"></div>
+        <div class="form-row"><label>Antecedentes de enfermedades respiratorias crónicas</label><textarea id="f-resp-hx" placeholder="Se completará automáticamente desde el PDF"></textarea></div>
+        <div class="form-row"><label>Hospitalizaciones previas</label><textarea id="f-hosp" placeholder="Se completará automáticamente desde el PDF"></textarea></div>
+        <div class="form-row"><label>Antecedentes mórbidos NO respiratorios</label><textarea id="f-other-hx" placeholder="Se completará automáticamente desde el PDF"></textarea></div>
         <div class="grid2">
-          <div class="form-row"><label>Tratamiento médico actual</label><textarea id="f-treatment" placeholder="Ej: Prednisona, antibiótico, 2 inhaladores..." style="min-height:65px"></textarea></div>
-          <div class="form-row"><label>Vacunas</label><textarea id="f-vaccines" placeholder="Ej: COVID x5 dosis, sin vacuna Influenza este año..." style="min-height:65px"></textarea></div>
+          <div class="form-row"><label>Tratamiento médico actual</label><textarea id="f-treatment" placeholder="Se completará automáticamente desde el PDF" style="min-height:65px"></textarea></div>
+          <div class="form-row"><label>Vacunas</label><textarea id="f-vaccines" placeholder="Se completará automáticamente desde el PDF" style="min-height:65px"></textarea></div>
         </div>
-        <div class="form-row"><label>Historia de la enfermedad actual (detallada)</label><textarea id="f-hea" placeholder="Cronología completa desde el inicio del cuadro actual..." style="min-height:100px"></textarea></div>
+        <div class="form-row"><label>Historia de la enfermedad actual (detallada)</label><textarea id="f-hea" placeholder="Se completará automáticamente desde el PDF" style="min-height:100px"></textarea></div>
 
         <div class="divider"></div>
         <div class="sec-label">👪 Contexto familiar y social</div>
         <div class="grid2">
-          <div class="form-row"><label>Hábito tabáquico</label><input type="text" id="f-tobacco" placeholder="Ej: 3 cigarrillos/día desde los 15 años"></div>
-          <div class="form-row"><label>Alcohol y otras sustancias</label><input type="text" id="f-alcohol" placeholder="Ej: No alcohol, no drogas"></div>
+          <div class="form-row"><label>Hábito tabáquico</label><input type="text" id="f-tobacco" placeholder="Se completará automáticamente desde el PDF"></div>
+          <div class="form-row"><label>Alcohol y otras sustancias</label><input type="text" id="f-alcohol" placeholder="Se completará automáticamente desde el PDF"></div>
         </div>
-        <div class="form-row"><label>Antecedentes familiares respiratorios</label><textarea id="f-fam-hx" placeholder="Ej: Padre fumador, madre con cuadro respiratorio reciente..."></textarea></div>
-        <div class="form-row"><label>Impacto de la enfermedad en vida personal y familiar</label><textarea id="f-impact" placeholder="Ej: Afecta sueño, ejercicio, relación de pareja..."></textarea></div>
-        <div class="form-row"><label>Establecimientos de salud donde se atiende</label><input type="text" id="f-health-centers" placeholder="Ej: CESFAM Quinta Bella, Hospital San José"></div>
+        <div class="form-row"><label>Antecedentes familiares respiratorios</label><textarea id="f-fam-hx" placeholder="Se completará automáticamente desde el PDF"></textarea></div>
+        <div class="form-row"><label>Impacto de la enfermedad en vida personal y familiar</label><textarea id="f-impact" placeholder="Se completará automáticamente desde el PDF"></textarea></div>
+        <div class="form-row"><label>Establecimientos de salud donde se atiende</label><input type="text" id="f-health-centers" placeholder="Se completará automáticamente desde el PDF"></div>
 
         <div class="divider"></div>
         <div class="sec-label">🤖 Comportamiento del chatbot</div>
         <div class="form-row"><label>Escenario clínico (texto que verá el estudiante al iniciar — sin datos del paciente)</label>
-          <textarea id="f-scenario" placeholder="Ej: Usted es estudiante de kinesiología en práctica clínica. Ingresa a la sala de espera de kinesiología respiratoria donde se encuentra un paciente adulto citado para su primera sesión..." style="min-height:80px"></textarea>
+          <textarea id="f-scenario" placeholder="Se completará automáticamente desde el PDF" style="min-height:80px"></textarea>
         </div>
         <div class="form-row"><label>Actitud y personalidad del interlocutor</label>
-          <textarea id="f-personality" placeholder="Ej: Amigable pero algo reacio a usar aerocámara. No conoce nombres técnicos de medicamentos. Responde solo lo que se le pregunta, no agrega información espontáneamente." style="min-height:65px"></textarea>
+          <textarea id="f-personality" placeholder="Se completará automáticamente desde el PDF" style="min-height:65px"></textarea>
         </div>
         <div class="form-row"><label>Información que solo revela si se pregunta directamente</label>
-          <textarea id="f-hidden" placeholder="Ej: Sigue fumando ocasionalmente aunque dice que casi no fuma. Prefiere inhalar sin aerocámara. Tiene miedo de una nueva hospitalización pero no lo dice..." style="min-height:65px"></textarea>
+          <textarea id="f-hidden" placeholder="Se completará automáticamente desde el PDF" style="min-height:65px"></textarea>
         </div>
         <div class="form-row"><label>Respuestas específicas a preguntas probables (del guión)</label>
-          <textarea id="f-scripted" placeholder="Pegue aquí las respuestas guionadas del PDF para que el chatbot las siga fielmente..." style="min-height:100px"></textarea>
+          <textarea id="f-scripted" placeholder="Se completará automáticamente desde el PDF" style="min-height:100px"></textarea>
         </div>
 
         <div id="step3-success" class="success-box">✅ Datos del caso guardados correctamente.</div>
@@ -1128,11 +1129,13 @@ Responde ÚNICAMENTE con este JSON exacto (sin markdown, sin texto extra):
 function fillFormFromExtraction(d) {
   const set = (id, val) => {
     const el = document.getElementById(id);
-    if (el && val) {
-      el.value = val;
-      // Trigger input event so field registers as "touched" and styles update
-      el.dispatchEvent(new Event('input'));
+    if (!el) return;
+    // Set the actual value (not placeholder)
+    el.value = val || '';
+    // Only style as filled if there's real content
+    if (val && val.trim()) {
       el.classList.add('field-filled');
+      el.dispatchEvent(new Event('input'));
     }
   };
   set('f-title', d.title);
@@ -1140,7 +1143,10 @@ function fillFormFromExtraction(d) {
   set('f-age', d.age);
   if (d.sex) {
     const sel = document.getElementById('f-sex');
-    if (sel) { sel.value = d.sex.includes('emen') ? 'Femenino' : 'Masculino'; sel.classList.add('field-filled'); }
+    if (sel) {
+      sel.value = d.sex.includes('emen') ? 'Femenino' : 'Masculino';
+      sel.classList.add('field-filled');
+    }
   }
   set('f-marital', d.marital);
   set('f-prevision', d.prevision);
@@ -1164,6 +1170,9 @@ function fillFormFromExtraction(d) {
   set('f-personality', d.personality);
   set('f-hidden', d.hiddenInfo);
   set('f-scripted', d.scriptedResponses);
+
+  // Show confirmation banner
+  showToast('✅ Datos extraídos del PDF. Revise y modifique si es necesario.');
 }
 
 function goToStep4() {
